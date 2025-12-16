@@ -8,43 +8,101 @@
     
     <style>
         /* CSS DEFAULT & TAMPILAN VERTICAL */
-        body { 
-            font-family: Arial, sans-serif; 
-            padding: 20px; 
-        }
-        
-        /* Aturan agar semua dropdown vertikal dan ukurannya nyaman di mobile */
-        /* Hanya perlu mengatur #lvl1, #lvl2, dan #lvl3 */
-        select, #lvl1, #lvl2, #lvl3 { 
-            margin: 8px 0; 
-            padding: 10px; 
-            width: 300px; 
-            display: block; /* Memicu tampilan Vertikal */
-            box-sizing: border-box; 
-        } 
-        
-        .hasil { 
-            margin-top: 20px; 
-            padding: 10px;
-            /* HILANGKAN background-color dan border */
-            font-weight: bold; 
-        }
 
-        /* MEDIA QUERY UNTUK LAYAR MOBILE (< 600px) */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            
-            /* Di mobile, gunakan lebar 100% */
-            select, #lvl1, #lvl2, #lvl3 {
-                width: 100%; 
-                margin: 5px 0;
-            }
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #2f451e;   /* HIJAU TUA LUAR */
+    margin: 0;
+    padding: 0;
+}
+
+/* CONTAINER UTAMA */
+.container {
+    max-width: 420px;
+    margin: 40px auto;
+    background: #cbf0af;   /* HIJAU MUDA UTAMA */
+    padding: 25px 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    text-align: center;
+}
+
+/* LOGO */
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 15px;
+}
+
+.logo-kementan {
+    height: 55px;   /* ukuran profesional untuk logo negara */
+}
+
+.logo-bppsdmp {
+    height: 45px;   /* sedikit lebih kecil, proporsional */
+}
+
+/* JUDUL */
+.judul {
+    font-size: 20px;
+    margin: 10px 0 20px;
+    font-weight: bold;
+    color: #1f3b14;  /* hijau gelap, tidak terlalu hitam */
+}
+
+/* DROPDOWN */
+select {
+    margin: 8px auto;
+    padding: 10px;
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    box-sizing: border-box;
+}
+
+/* HASIL SBM – DIHIGHLIGHT */
+.hasil {
+    margin-top: 22px;
+    padding: 18px 16px;
+    background: #e8f7dd;          /* lebih terang dari container */
+    border: 2px solid #2f451e;    /* hijau tua luar */
+    font-size: 18px;
+    font-weight: bold;
+    color: #1f3b14;
+    border-radius: 8px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px 10px;
+    }
+
+    .logo-kementan {
+        height: 48px;
+    }
+
+    .logo-bppsdmp {
+        height: 40px;
+    }
+}
     </style>
 </head>
 <body>
+<div class="container">
+
+    <!-- HEADER LOGO -->
+    <div class="header-logo">
+        <img src="https://www.pertanian.go.id/assets/img/logo.png"
+             alt="Logo Kementerian Pertanian"
+             class="logo-kementan">
+
+        <img src="https://bppsdmp.pertanian.go.id/uploads/logo/01K68FG2BFX2MYAVT6NMZ6E3RW.webp"
+             alt="Logo BPSDMP"
+             class="logo-bppsdmp">
+    </div>
 
     <h2>Aplikasi Cek SBM 2025</h2>
     
@@ -60,7 +118,8 @@
       <option value="">Variabel 2</option>
     </select>
     
-    <div class="hasil" id="hasil">Pilih semua variabel yang tersedia.</div>
+    <div class="hasil" id="hasil">Silakan lengkapi semua pilihan yang tersedia.</div>
+</div>
     
     <script>
     
@@ -180,5 +239,4 @@
     // =================================================================
     </script>
 </body>
-
 </html>
